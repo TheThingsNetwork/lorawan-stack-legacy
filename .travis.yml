@@ -1,0 +1,9 @@
+language: go
+go_import_path: go.thethings.network/lorawan-stack-legacy
+sudo: required
+services:
+  - docker
+script:
+  - make go.protos.clean
+  - make go.protos
+  - git diff --exit-code || (echo "Go files created by Travis differ from the ones checked in. Please make sure you've checked in the generated Go files, and try again." && exit 1)
