@@ -54,7 +54,7 @@ var Modulation_value = map[string]int32{
 }
 
 func (Modulation) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{0}
+	return fileDescriptor_router_43dd7780e28e5315, []int{0}
 }
 
 type LocationMetadata_LocationSource int32
@@ -83,7 +83,7 @@ var LocationMetadata_LocationSource_value = map[string]int32{
 }
 
 func (LocationMetadata_LocationSource) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{7, 0}
+	return fileDescriptor_router_43dd7780e28e5315, []int{7, 0}
 }
 
 type UplinkMessage struct {
@@ -99,7 +99,7 @@ type UplinkMessage struct {
 func (m *UplinkMessage) Reset()      { *m = UplinkMessage{} }
 func (*UplinkMessage) ProtoMessage() {}
 func (*UplinkMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{0}
+	return fileDescriptor_router_43dd7780e28e5315, []int{0}
 }
 func (m *UplinkMessage) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -169,7 +169,7 @@ type DownlinkMessage struct {
 func (m *DownlinkMessage) Reset()      { *m = DownlinkMessage{} }
 func (*DownlinkMessage) ProtoMessage() {}
 func (*DownlinkMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{1}
+	return fileDescriptor_router_43dd7780e28e5315, []int{1}
 }
 func (m *DownlinkMessage) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -241,7 +241,7 @@ type Trace struct {
 func (m *Trace) Reset()      { *m = Trace{} }
 func (*Trace) ProtoMessage() {}
 func (*Trace) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{2}
+	return fileDescriptor_router_43dd7780e28e5315, []int{2}
 }
 func (m *Trace) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -328,7 +328,7 @@ type ProtocolRxMetadata struct {
 func (m *ProtocolRxMetadata) Reset()      { *m = ProtocolRxMetadata{} }
 func (*ProtocolRxMetadata) ProtoMessage() {}
 func (*ProtocolRxMetadata) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{3}
+	return fileDescriptor_router_43dd7780e28e5315, []int{3}
 }
 func (m *ProtocolRxMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -373,7 +373,7 @@ type ProtocolTxConfiguration struct {
 func (m *ProtocolTxConfiguration) Reset()      { *m = ProtocolTxConfiguration{} }
 func (*ProtocolTxConfiguration) ProtoMessage() {}
 func (*ProtocolTxConfiguration) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{4}
+	return fileDescriptor_router_43dd7780e28e5315, []int{4}
 }
 func (m *ProtocolTxConfiguration) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -423,7 +423,7 @@ type LoRaWANMetadata struct {
 func (m *LoRaWANMetadata) Reset()      { *m = LoRaWANMetadata{} }
 func (*LoRaWANMetadata) ProtoMessage() {}
 func (*LoRaWANMetadata) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{5}
+	return fileDescriptor_router_43dd7780e28e5315, []int{5}
 }
 func (m *LoRaWANMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -507,7 +507,7 @@ type LoRaWANTxConfiguration struct {
 func (m *LoRaWANTxConfiguration) Reset()      { *m = LoRaWANTxConfiguration{} }
 func (*LoRaWANTxConfiguration) ProtoMessage() {}
 func (*LoRaWANTxConfiguration) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{6}
+	return fileDescriptor_router_43dd7780e28e5315, []int{6}
 }
 func (m *LoRaWANTxConfiguration) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -585,7 +585,7 @@ type LocationMetadata struct {
 func (m *LocationMetadata) Reset()      { *m = LocationMetadata{} }
 func (*LocationMetadata) ProtoMessage() {}
 func (*LocationMetadata) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{7}
+	return fileDescriptor_router_43dd7780e28e5315, []int{7}
 }
 func (m *LocationMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -676,7 +676,7 @@ type GatewayRxMetadata struct {
 func (m *GatewayRxMetadata) Reset()      { *m = GatewayRxMetadata{} }
 func (*GatewayRxMetadata) ProtoMessage() {}
 func (*GatewayRxMetadata) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{8}
+	return fileDescriptor_router_43dd7780e28e5315, []int{8}
 }
 func (m *GatewayRxMetadata) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -806,7 +806,7 @@ type GatewayRxMetadata_Antenna struct {
 func (m *GatewayRxMetadata_Antenna) Reset()      { *m = GatewayRxMetadata_Antenna{} }
 func (*GatewayRxMetadata_Antenna) ProtoMessage() {}
 func (*GatewayRxMetadata_Antenna) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{8, 0}
+	return fileDescriptor_router_43dd7780e28e5315, []int{8, 0}
 }
 func (m *GatewayRxMetadata_Antenna) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -912,7 +912,7 @@ type GatewayTxConfiguration struct {
 func (m *GatewayTxConfiguration) Reset()      { *m = GatewayTxConfiguration{} }
 func (*GatewayTxConfiguration) ProtoMessage() {}
 func (*GatewayTxConfiguration) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{9}
+	return fileDescriptor_router_43dd7780e28e5315, []int{9}
 }
 func (m *GatewayTxConfiguration) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -1017,7 +1017,7 @@ type StatusMessage struct {
 func (m *StatusMessage) Reset()      { *m = StatusMessage{} }
 func (*StatusMessage) ProtoMessage() {}
 func (*StatusMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{10}
+	return fileDescriptor_router_43dd7780e28e5315, []int{10}
 }
 func (m *StatusMessage) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -1242,7 +1242,7 @@ type StatusMessage_OSMetrics struct {
 func (m *StatusMessage_OSMetrics) Reset()      { *m = StatusMessage_OSMetrics{} }
 func (*StatusMessage_OSMetrics) ProtoMessage() {}
 func (*StatusMessage_OSMetrics) Descriptor() ([]byte, []int) {
-	return fileDescriptor_router_2abbf2344967326f, []int{10, 0}
+	return fileDescriptor_router_43dd7780e28e5315, []int{10, 0}
 }
 func (m *StatusMessage_OSMetrics) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -7022,10 +7022,10 @@ var (
 	ErrIntOverflowRouter   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("router/router.proto", fileDescriptor_router_2abbf2344967326f) }
-func init() { golang_proto.RegisterFile("router/router.proto", fileDescriptor_router_2abbf2344967326f) }
+func init() { proto.RegisterFile("router/router.proto", fileDescriptor_router_43dd7780e28e5315) }
+func init() { golang_proto.RegisterFile("router/router.proto", fileDescriptor_router_43dd7780e28e5315) }
 
-var fileDescriptor_router_2abbf2344967326f = []byte{
+var fileDescriptor_router_43dd7780e28e5315 = []byte{
 	// 1904 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x58, 0x3d, 0x6c, 0x23, 0xc7,
 	0x15, 0xe6, 0xf2, 0x9f, 0x8f, 0xa2, 0xc4, 0x9b, 0x3b, 0xea, 0x56, 0x92, 0xb3, 0xe4, 0xd1, 0x30,
