@@ -15,10 +15,31 @@
 GOPATH ?= $(shell go env GOPATH)
 PWD ?= $(shell pwd)
 
-go.protos:
-	@which docker > /dev/null || (echo "Please install Docker to generate protos." && exit 1)
-	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.10 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src discovery/discovery.proto
-	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.10 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src router/router.proto
+EMPTY :=
+SPACE := $(EMPTY) $(EMPTY)
+COMMA := ,
+
+DOCKER ?= docker
+
+PROTOC_OUT ?= /out
+
+PROTOC_DOCKER_IMAGE ?= thethingsindustries/protoc:3.0.10
+PROTOC_DOCKER_ARGS = run --user `id -u` --rm \
+                     --mount type=bind,src=$(PWD)/api,dst=$(PWD)/api,ro=true \
+                     --mount type=bind,src=$(PWD)/pkg/ttnpb,dst=$(PROTOC_OUT)/go.thethings.network/lorawan-stack-legacy/pkg/ttnpb \
+                     -w $(PWD)
+PROTOC ?= $(DOCKER) $(PROTOC_DOCKER_ARGS) $(PROTOC_DOCKER_IMAGE) -I$(shell dirname $(PWD))
+
+GO_PROTO_TYPES := any duration empty field_mask struct timestamp wrappers
+GO_PROTO_TYPE_CONVERSIONS = $(subst $(SPACE),$(COMMA),$(foreach type,$(GO_PROTO_TYPES),Mgoogle/protobuf/$(type).proto=github.com/gogo/protobuf/types))
+GO_PROTOC_FLAGS ?= \
+	--gogottn_out=plugins=grpc,$(GO_PROTO_TYPE_CONVERSIONS):$(PROTOC_OUT)
+
+protoc:
+	$(DOCKER) pull $(PROTOC_DOCKER_IMAGE)
+
+go.protos: $(wildcard api/*.proto)
+	$(PROTOC) $(GO_PROTOC_FLAGS) $(PWD)/api/*.proto
 
 go.protos.clean:
-	@for pkg in discovery router; do rm "$${pkg}/$${pkg}.pb.go"; done
+	find ./pkg/ttnpb -name '*.pb.go' -delete
