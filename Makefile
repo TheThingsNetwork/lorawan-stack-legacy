@@ -17,8 +17,8 @@ PWD ?= $(shell pwd)
 
 go.protos:
 	@which docker > /dev/null || (echo "Please install Docker to generate protos." && exit 1)
-	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.9 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src discovery/discovery.proto
-	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.9 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src router/router.proto
+	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.10 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src discovery/discovery.proto
+	docker run --user `id -u` --rm -v $(PWD):$(PWD) -w $(PWD) thethingsindustries/protoc:3.0.10 -I$(PWD) --gogottn_out=Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,plugins=grpc:$(GOPATH)/src router/router.proto
 
 go.protos.clean:
 	@for pkg in discovery router; do rm "$${pkg}/$${pkg}.pb.go"; done

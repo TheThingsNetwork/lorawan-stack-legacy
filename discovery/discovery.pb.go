@@ -39,7 +39,7 @@ type GetRequest struct {
 func (m *GetRequest) Reset()      { *m = GetRequest{} }
 func (*GetRequest) ProtoMessage() {}
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_discovery_f42e99380e8feac2, []int{0}
+	return fileDescriptor_discovery_cada22fcf56e9ed8, []int{0}
 }
 func (m *GetRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -96,7 +96,7 @@ type Announcement struct {
 func (m *Announcement) Reset()      { *m = Announcement{} }
 func (*Announcement) ProtoMessage() {}
 func (*Announcement) Descriptor() ([]byte, []int) {
-	return fileDescriptor_discovery_f42e99380e8feac2, []int{1}
+	return fileDescriptor_discovery_cada22fcf56e9ed8, []int{1}
 }
 func (m *Announcement) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -1028,13 +1028,13 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("discovery/discovery.proto", fileDescriptor_discovery_f42e99380e8feac2)
+	proto.RegisterFile("discovery/discovery.proto", fileDescriptor_discovery_cada22fcf56e9ed8)
 }
 func init() {
-	golang_proto.RegisterFile("discovery/discovery.proto", fileDescriptor_discovery_f42e99380e8feac2)
+	golang_proto.RegisterFile("discovery/discovery.proto", fileDescriptor_discovery_cada22fcf56e9ed8)
 }
 
-var fileDescriptor_discovery_f42e99380e8feac2 = []byte{
+var fileDescriptor_discovery_cada22fcf56e9ed8 = []byte{
 	// 431 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0xb1, 0x6f, 0x13, 0x31,
 	0x14, 0xc6, 0xfd, 0x52, 0xa9, 0x52, 0x9c, 0x00, 0x92, 0x25, 0xe0, 0xa8, 0xc4, 0x6b, 0xe9, 0x02,
