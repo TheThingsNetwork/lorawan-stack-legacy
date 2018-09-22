@@ -12,25 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package router
+syntax = "proto3";
 
-const delta = 0.01
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
-func (m *LocationMetadata) Valid() bool {
-	if m == nil {
-		return false
-	}
-	if (m.Latitude > 0-delta && m.Latitude < 0+delta) && (m.Longitude > 0-delta && m.Longitude < 0+delta) {
-		return false // Around (0,0) is invalid
-	}
-	if (m.Latitude > 10-delta && m.Latitude < 10+delta) && (m.Longitude > 20-delta && m.Longitude < 20+delta) {
-		return false // Around (10,20) is invalid
-	}
-	if m.Latitude >= 90-delta || m.Latitude <= -90+delta {
-		return false // Nobody lives there
-	}
-	if m.Longitude > 180 || m.Longitude < -180 {
-		return false // Those longitudes don't exist
-	}
-	return true
+package ttn.lorawan.v2;
+
+option go_package = "go.thethings.network/lorawan-stack-legacy/pkg/ttnpb";
+
+message GetRequest {
+  string id = 1 [(gogoproto.customname) = "ID"];
+  string service_name = 2;
+}
+
+message Announcement {
+  string id = 1 [(gogoproto.customname) = "ID"];
+  string service_name = 2;
+  string service_version = 3;
+  string net_address = 11;
+  string public_key  = 12;
+  string certificate = 13;
+}
+
+service Discovery {
+  rpc Get(GetRequest) returns (Announcement);
 }
