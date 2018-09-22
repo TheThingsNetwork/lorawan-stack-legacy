@@ -1,6 +1,6 @@
-# The Things Network LoRaWAN Stack Legacy API
+# The Things Network LoRaWAN Stack Legacy API and Tools
 
-This repository holds legacy The Things Network APIs, for compatibility purposes.
+This repository holds legacy The Things Network APIs and tools, for compatibility purposes.
 
 ## Install
 
