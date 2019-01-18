@@ -44,6 +44,7 @@ GO_PROTOC_FLAGS ?= \
 
 go.protos: $(wildcard api/*.proto)
 	$(PROTOC) $(GO_PROTOC_FLAGS) $(PWD)/api/*.proto
+	perl -i -pe 's:golang.org/x/net/context:context:' `find ./pkg -name '*pb.go'`
 	goimports -w $(PWD)/pkg/ttnpb
 	unconvert -apply ./pkg/ttnpb/...
 	gofmt -w -s $(PWD)/pkg/ttnpb
