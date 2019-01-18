@@ -6,6 +6,7 @@ sudo: required
 services:
   - docker
 script:
+  - make dev-deps
   - make go.protos.clean
   - make go.protos
   - git diff --exit-code || (echo "Go files created by Travis differ from the ones checked in. Please make sure you've checked in the generated Go files, and try again." && exit 1)

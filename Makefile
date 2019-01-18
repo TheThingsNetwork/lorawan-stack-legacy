@@ -19,6 +19,10 @@ EMPTY :=
 SPACE := $(EMPTY) $(EMPTY)
 COMMA := ,
 
+dev-deps:
+	go get -u ./... github.com/alecthomas/gometalinter
+	gometalinter -i
+
 DOCKER ?= docker
 
 PROTOC_OUT ?= /out
