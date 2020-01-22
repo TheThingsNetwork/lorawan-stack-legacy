@@ -59,13 +59,28 @@ enum Modulation {
   FSK  = 1;
 }
 
+enum FrequencyPlan {
+  EU_863_870 = 0;
+  US_902_928 = 1;
+  CN_779_787 = 2;
+  EU_433     = 3;
+  AU_915_928 = 4;
+  CN_470_510 = 5;
+  AS_923     = 6;
+  AS_920_923 = 61;
+  AS_923_925 = 62;
+  KR_920_923 = 7;
+  IN_865_867 = 8;
+  RU_864_870 = 9;
+}
+
 message LoRaWANMetadata {
   Modulation modulation = 11;
   string data_rate = 12;
   uint32 bit_rate = 13;
   string coding_rate = 14;
   uint32 f_cnt = 15;
-  uint32 frequency_plan = 16;
+  FrequencyPlan frequency_plan = 16;
 }
 
 message LoRaWANTxConfiguration {
