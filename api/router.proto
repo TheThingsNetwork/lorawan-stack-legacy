@@ -14,7 +14,6 @@
 
 syntax = "proto3";
 
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/protobuf/empty.proto";
 
 package router;
@@ -24,23 +23,23 @@ option go_package = "go.thethings.network/lorawan-stack-legacy/pkg/ttnpb";
 message UplinkMessage {
   bytes payload = 1;
   // ProtocolMessage message = 2;
-  ProtocolRxMetadata protocol_metadata = 11 [(gogoproto.nullable) = false];
-  GatewayRxMetadata gateway_metadata = 12 [(gogoproto.nullable) = false];
+  ProtocolRxMetadata protocol_metadata = 11;
+  GatewayRxMetadata gateway_metadata = 12;
   Trace trace = 21;
 }
 
 message DownlinkMessage {
   bytes payload = 1;
   // ProtocolMessage message = 2;
-  ProtocolTxConfiguration protocol_configuration = 11 [(gogoproto.nullable) = false];
-  GatewayTxConfiguration gateway_configuration = 12 [(gogoproto.nullable) = false];
+  ProtocolTxConfiguration protocol_configuration = 11;
+  GatewayTxConfiguration gateway_configuration = 12;
   Trace trace = 21;
 }
 
 message Trace {
-  string id = 1 [(gogoproto.customname) = "ID"];
+  string id = 1;
   int64 time = 2;
-  string service_id = 3 [(gogoproto.customname) = "ServiceID"];
+  string service_id = 3;
   string service_name = 4;
   string event = 5;
   map<string, string> metadata = 6;
@@ -48,16 +47,31 @@ message Trace {
 }
 
 message ProtocolRxMetadata {
-  LoRaWANMetadata lorawan = 1 [(gogoproto.customname) = "LoRaWAN"];
+  LoRaWANMetadata lorawan = 1;
 }
 
 message ProtocolTxConfiguration {
-  LoRaWANTxConfiguration lorawan = 1 [(gogoproto.customname) = "LoRaWAN"];
+  LoRaWANTxConfiguration lorawan = 1;
 }
 
 enum Modulation {
   LORA = 0;
   FSK  = 1;
+}
+
+enum FrequencyPlan {
+  EU_863_870 = 0;
+  US_902_928 = 1;
+  CN_779_787 = 2;
+  EU_433     = 3;
+  AU_915_928 = 4;
+  CN_470_510 = 5;
+  AS_923     = 6;
+  AS_920_923 = 61;
+  AS_923_925 = 62;
+  KR_920_923 = 7;
+  IN_865_867 = 8;
+  RU_864_870 = 9;
 }
 
 message LoRaWANMetadata {
@@ -66,7 +80,7 @@ message LoRaWANMetadata {
   uint32 bit_rate = 13;
   string coding_rate = 14;
   uint32 f_cnt = 15;
-  uint32 frequency_plan = 16;
+  FrequencyPlan frequency_plan = 16;
 }
 
 message LoRaWANTxConfiguration {
@@ -94,7 +108,7 @@ message LocationMetadata {
 }
 
 message GatewayRxMetadata {
-  string gateway_id = 1 [(gogoproto.customname) = "GatewayID"];
+  string gateway_id = 1;
   bool gateway_trusted = 2;
   uint32 timestamp = 11;
   int64 time = 12;
@@ -103,16 +117,16 @@ message GatewayRxMetadata {
   uint32 channel = 22;
   repeated Antenna antennas = 30;
   uint64 frequency = 31;
-  float rssi = 32 [(gogoproto.customname) = "RSSI"];
-  float snr = 33 [(gogoproto.customname) = "SNR"];
+  float rssi = 32;
+  float snr = 33;
   message Antenna {
     uint32 antenna = 1;
     uint32 channel = 2;
-    float rssi = 3 [(gogoproto.customname) = "RSSI"];
-    float channel_rssi = 5 [(gogoproto.customname) = "ChannelRSSI"];
-    float rssi_standard_deviation = 6 [(gogoproto.customname) = "RSSIStandardDeviation"];
+    float rssi = 3;
+    float channel_rssi = 5;
+    float rssi_standard_deviation = 6;
     int64 frequency_offset = 7;
-    float snr = 4 [(gogoproto.customname) = "SNR"];
+    float snr = 4;
     bytes encrypted_time = 10;
     int64 fine_time = 11;
   }
@@ -133,18 +147,18 @@ message StatusMessage {
   int64 time = 2;
   bool gateway_trusted = 3;
   int64 boot_time = 4;
-  repeated string ip = 11 [(gogoproto.customname) = "IP"];
+  repeated string ip = 11;
   string platform = 12;
   string contact_email = 13;
   string description = 14;
   string frequency_plan = 15;
   string bridge = 16;
   string router = 17;
-  uint32 fpga = 18 [(gogoproto.customname) = "FPGA"];
-  uint32 dsp = 19 [(gogoproto.customname) = "DSP"];
-  string hal = 20 [(gogoproto.customname) = "HAL"];
+  uint32 fpga = 18;
+  uint32 dsp = 19;
+  string hal = 20;
   LocationMetadata location = 21;
-  uint32 rtt = 31 [(gogoproto.customname) = "RTT"];
+  uint32 rtt = 31;
   uint32 rx_in = 41;
   uint32 rx_ok = 42;
   uint32 tx_in = 43;
@@ -152,16 +166,16 @@ message StatusMessage {
   uint32 lm_ok = 45;
   uint32 lm_st = 46;
   uint32 lm_nw = 47;
-  uint32 l_pps = 48 [(gogoproto.customname) = "LPPS"];
+  uint32 l_pps = 48;
   message OSMetrics {
     float load_1 = 1;
     float load_5 = 2;
     float load_15 = 3;
-    float cpu_percentage = 11 [(gogoproto.customname) = "CPUPercentage"];
+    float cpu_percentage = 11;
     float memory_percentage = 21;
     float temperature = 31;
   }
-  OSMetrics os = 51 [(gogoproto.customname) = "OS"];
+  OSMetrics os = 51;
   repeated string messages = 52;
 }
 
