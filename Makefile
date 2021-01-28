@@ -17,19 +17,19 @@ GO = go
 PROTOC = protoc
 
 PROTO_PATH = api
-GOPATH ?= $(shell $(GO) env GOPATH)
 
 .PHONY: protos
 protos:
-	$(PROTOC) -I=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --gogofast_out=plugins=grpc,\
+	$(PROTOC) --gogofast_out=plugins=grpc,\
 Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/struct.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types:../.. \
+Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types:proto_out \
 		--proto_path=$(PROTO_PATH) \
 		$(PROTO_PATH)/*.proto
+	mv proto_out/go.thethings.network/lorawan-stack-legacy/pkg/ttnpb/*.* pkg/ttnpb/
 
 .PHONY: deps
 deps:
