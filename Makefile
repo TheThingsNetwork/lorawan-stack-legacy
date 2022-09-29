@@ -21,20 +21,16 @@ GOPATH ?= $(shell $(GO) env GOPATH)
 
 .PHONY: protos
 protos:
-	$(PROTOC) -I=$(GOPATH)/src/github.com/gogo/protobuf/protobuf --gogofast_out=plugins=grpc,\
-Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/empty.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/struct.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
-Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types:../.. \
+	$(PROTOC) \
+		--go_out=:../.. \
+		--go-grpc_out=:../.. \
 		--proto_path=$(PROTO_PATH) \
 		$(PROTO_PATH)/*.proto
 
 .PHONY: deps
 deps:
-	$(GO) get github.com/gogo/protobuf/protoc-gen-gogofast
-	$(GO) get google.golang.org/grpc
+	$(GO) get google.golang.org/protobuf/cmd/protoc-gen-go
+	$(GO) get google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
 .PHONY: clean
 clean:
