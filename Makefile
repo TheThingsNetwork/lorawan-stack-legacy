@@ -29,8 +29,8 @@ protos:
 
 .PHONY: deps
 deps:
-	$(GO) get google.golang.org/protobuf/cmd/protoc-gen-go
-	$(GO) get google.golang.org/grpc/cmd/protoc-gen-go-grpc
+	$(GO) install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+	$(GO) install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 .PHONY: clean
 clean:
